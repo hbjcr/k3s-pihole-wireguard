@@ -4,11 +4,11 @@ metadata:
   name: ddns-secret
   namespace: pihole
 data:
-  GOOGLE_USER: <user-base64-ecoded>
-  GOOGLE_PASS: <password-base64-ecoded>
-  GOOGLE_DOMAIN: <domain-base64-ecoded>
+  GOOGLE_USER: <google_username>
+  GOOGLE_PASS: <google_password>
+  GOOGLE_DOMAIN: <google_domain>
 ---
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: ddns-google
@@ -23,7 +23,7 @@ spec:
         spec:
           containers:
           - name: ddns-curl
-            image: docker.io/curlimages/curl:7.73.0
+            image: docker.io/curlimages/curl:latest
             args:
             - /bin/sh
             - -c
