@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: unbound
-        image: docker.io/mvance/unbound:1.13.0
+        image: docker.io/mvance/unbound-rpi:latest
         ports:
         - name: svc-53-udp
           containerPort: 53
